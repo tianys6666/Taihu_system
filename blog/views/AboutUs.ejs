@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/ditu.css">
+    <link href="stylesheets/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/bootslider.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">湖泊数据可视化</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="ditu">地图</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            工具 <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="xiazai">查询下载</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Geojson数据转换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="AboutUs">关于我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav nav-pills pull-right">
+                    <% if (user) { %>
+                    <li><a href="/usermessage"><%= user.name %></a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/login">登陆</a></li>
+                    <li><a href="/reg">注册</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="jq22-container">
+    <div class="headerh"><h1>关于我们</h1></div>
+    <div class="jq22-content">
+        <ul class="cards-split">
+            <li class="title"></li>
+            <li class="card card-2"><img src="images/06.jpg"/>
+                <div class="content"><h1>团队组成</h1>
+                    <h4><p>团队成员：田昀昇、闫英男</p>
+                        <p>团队口号：从不服输向前进，永不放弃我能行</p></p></h4>
+                </div>
+            </li>
+            <li class="card card-1"><img src="images/04.jpg"/>
+                <div class="content"><h1>地址</h1>
+                    <h4><p>&nbsp&nbsp&nbsp甘肃省兰州市城关区天水南路222号兰州大学飞云楼DSlab实验室</p></h4>
+                </div>
+            </li>
+            <li class="card card-3"><img src="images/02.jpg"/>
+                <div class="content"><h1>团队简介</h1>
+                    <h4><p>&nbsp&nbsp&nbsp我们是来自祖国大西北的队伍，我们年轻、充满活力，为了心目中那份梦想而努力追逐，持之以恒，哪怕遇见再大的风险、再大的浪，相信我们也会有默契的目光</p>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer class="navbar-fixed-bottom navbar-default footer-wrapper" id="footer-wrapper1">
+    <div class="container"><p class="text-center">2016 DSLab. LZU.</p></div>
+</footer>
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/echarts.min.js"></script>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script>    jQuery(document).ready(function ($) {
+        $('ul.cards-split').on('click', function () {
+            $(this).toggleClass('transition');
+        });
+    });</script>
+</body>
+</html>

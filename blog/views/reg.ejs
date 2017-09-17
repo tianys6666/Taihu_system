@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" href="/stylesheets/leaflet.css"/>
+    <link rel="stylesheet" href="/stylesheets/ditu.css"/>
+    <link rel="stylesheet" href="/stylesheets/loginreg.css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">湖泊数据可视化</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="ditu">地图</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            工具 <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="xiazai">查询下载</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Geojson数据转换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="AboutUs">关于我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav nav-pills pull-right">
+                    <% if (user) { %>
+                    <li><a href="/usermessage"><%= user.name %></a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/login">登陆</a></li>
+                    <li><a href="/reg">注册</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="register-container"><h1>register</h1>
+    <div class="connect"><p>Link the website. Share the visualization.</p></div>
+    <form action="" method="post" id="registerForm">
+        <div><input type="text" name="name" class="username" placeholder="您的用户名" autocomplete="off"/></div>
+        <div><input type="password" name="password" class="password" placeholder="输入密码" oncontextmenu="return false"
+                    onpaste="return false"/></div>
+        <div><input type="password" name="password-repeat" class="confirm_password" placeholder="再次输入密码"
+                    oncontextmenu="return false" onpaste="return false"/></div>
+        <div><input type="email" name="email" class="email" placeholder="输入邮箱地址" oncontextmenu="return false"
+                    onpaste="return false"/></div>
+        <button id="submit" type="submit">注 册</button>
+        <a href="login">
+            <button type="button" class="register-tis">已经有账号？</button>
+        </a></form>
+</div>
+<footer class="navbar-fixed-bottom navbar-default footer-wrapper" id="footer-wrapper1">
+    <div class="container"><p class="text-center">2016 DSLab. LZU.</p></div>
+</footer>
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/leaflet.js"></script>
+<script type="text/javascript" src="/javascripts/echarts.min.js"></script>
+<script type="text/javascript" src="/javascripts/ChineseTmsProviders.js"></script>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="/javascripts/common.js"></script>
+<script src="/javascripts/supersized.3.2.7.min.js"></script>
+<script src="/javascripts/supersized-init.js"></script>
+<script src="/javascripts/jquery.validate.min.js"></script>
+</body>
+</html>

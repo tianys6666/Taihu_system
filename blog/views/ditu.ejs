@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/ditu.css">
+    <link href="stylesheets/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/bootslider.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">湖泊数据可视化</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="ditu">地图</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            工具 <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="xiazai">查询下载</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Geojson数据转换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="AboutUs">关于我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav nav-pills pull-right">
+                    <% if (user) { %>
+                    <li><a href="/usermessage"><%= user.name %></a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/login">登陆</a></li>
+                    <li><a href="/reg">注册</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container-fluid main-wrapper">
+    <aside class="nav nav-stacked main-left main-left-wrapper">
+        <div>
+            <div role="navigation" class="navbar navbar-default main-left-introduction"><span
+                        class="glyphicon glyphicon-tags text-center" aria-hiddn="true"></span>
+                <p><a id="selected-name">地图 :</a></p></div>
+        </div>
+        <div class="main-left-select">
+            <ul class="list-group list-identify"><a href="#systemSetting" class="nav-header collapsed"
+                                                    data-toggle="collapse"> <span
+                            class="glyphicon glyphicon-th-list item-prefix-icon"></span> <span
+                            class="prefix-mark">太湖流域</span> <span
+                            class="glyphicon glyphicon-menu-down item-postponed-icon"></span> </a>
+                <ul id="systemSetting" class="nav nav-list collapse secondmenu">
+                    <li class="list-group-item map-item">
+                        <form class="list-item"><label> <input type="checkbox" class="item-checkbox" id="item-checkbox">
+                                <span class="glyphicon glyphicon-picture item-prefix-icon" aria-hidden="true"></span> <a
+                                        class="pointmark">point</a> </label></form>
+                    </li>
+                    <li class="list-group-item map-item">
+                        <form class="list-item"><label> <input type="checkbox" class="item-checkbox" id="item-checkbox">
+                                <span class="glyphicon glyphicon-picture item-prefix-icon" aria-hidden="true"></span> <a
+                                        class="pointmark">border</a> </label></form>
+                    </li>
+                    <li class="list-group-item map-item">
+                        <form class="list-item"><label> <input type="checkbox" class="item-checkbox" id="item-checkbox">
+                                <span class="glyphicon glyphicon-picture item-prefix-icon" aria-hidden="true"></span> <a
+                                        class="pointmark">region</a> </label></form>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </aside>
+    <div class="main-right-wrapper">
+        <div role="navigation" class="navbar navbar-default main-right-introduction"><p>地标在线展示分享</p></div>
+        <div class="main-right-canvas">
+            <div id="map"></div>
+        </div>
+        <div id="dataPanel"
+             style="overflow:hidden;display:none;position:absolute;width:88%;			height:525px;background-color:#FFFFFF;top:55%;left:5%;">
+            <div id="tystest" style="width:100%;height:30px;background-color:rgb(95, 158, 160);"><span id="Close"
+                                                                                                       style="float:right;"><img
+                            src="/images/close.gif"></span></div>
+            <div id="mytest" style="width:100%;height:495px;overflow: auto">
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;湖泊沉积物对于维系湖泊小流域内的生态平衡作用非常大，并为营养物质在湖泊中更好的有机循环提供平台。沉积物汇聚了大量的污染物，是小环境内污物的聚集地，不但可以反映出该流域的气候变迁，还可以反映出环境受人们改造大自然方式和力度的影响。</div>
+                </div>
+                <hr style="border:1px dashed #376956;width:99%;height:1px"/>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel1" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;湖水吸收净辐射热量，同时通过水面蒸发、湖水紊动和对流等，在湖水内部、湖水与大气、湖水与湖盆间进行热量交换。在交换中，湖水储热量增加，湖水增温，反之，则降温。同时由于太阳辐射强度的变化，水温也会季节性变化。水深受季节性降雨的影响较大。</div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel2" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;湖水透明度是指湖水能使光线透过的程度。表示水的清澈情况，是水质评价指标之一。影响湖水透明度的主要因素有太阳高度、悬浮物和浮游生物。太阳高度角越大，射入湖水中的光亮越多，透明度越大。湖水中的悬浮物质和浮游生物越多，对光的散射和吸收越强，透明度就越小。另外，入湖径流、风和季节变化对透明度也有一定影响。</div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel3" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;湖水导电率能充分反应湖水中的各种离子的含量，湖水污染越严重，湖水中的导电离子越多，导电率越高。</div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel4" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;湖水中悬浮颗粒和可溶性物质，使湖水对光的选择性减弱，降低了湖水的透明度，湖水悬浮质和透明度是成反比的。</div>
+                </div>
+                <hr style="border:1px dashed #376956;width:99%;height:1px"/>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel5" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;脱镁叶绿素是叶绿素在经过加酸或加热或脱镁作用后变成的，叶绿素颜色也会改变。在水污染的地方，浮游植物细胞破碎死亡时，其原本所含的叶绿素也跟着被破坏，而转变成脱镁叶绿素。因此脱镁叶绿素的含量比例是重要的水质的指标之一。</div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel6" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;总氮是水中各种形态无机和有机氮的总量。包括NO3-、NO2-和NH4+等无机氮和蛋白质、氨基酸和有机胺等有机氮，以每升水含氮毫克数计算。被用来表示水体受营养物质污染的程度，水中的总氮含量是衡量水质的重要指标之一。其测定有助于评价水体被污染和自净状况。地表水中氮、磷物质超标时，微生物大量繁殖，浮游生物生长旺盛，出现富营养化状态。</div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel7" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;CODMn是指在酸性或碱性介质中，以高锰酸钾为氧化剂，处理水样时所消耗的量。水中的亚硝酸盐、亚铁盐等还原性无机物和在此条件下可被氧化的有机物，均可消耗高锰酸钾。因此，高锰酸钾指数常被作为水体受有机污染和还原性无机物污染程度的综合指标。<br>&nbsp;&nbsp;&nbsp;&nbsp;BOD5是指在规定条件下微生物分解存在水中的某些可氧化物质所消耗溶解氧的量，它间接反映水体中有机物含量。
+                    </div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel8" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;氟离子为水环境监测的重要指标，在地表水和饮用水的水质监测项目中为必测项目。水环境中氟离子主要来源于有机化工、磷肥、钢铁、冶金等工厂的废水排放。<br>&nbsp;&nbsp;&nbsp;&nbsp;钾离子对动物和植物的生命体征都有非常重要的作用，人类在从事农业生产时使用的化肥，经过雨水的冲刷流入湖泊会使湖水中钾离子增多。
+                    </div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel9" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;总磷指水体中磷元素的含量，主要是磷酸盐的形式，是反映水体富营养化的指标。<br>&nbsp;&nbsp;&nbsp;&nbsp;硝态氮是指硝酸盐中所含有的氮元素。水和土壤中的有机物分解生成铵盐，被氧化后变为硝态氮。以硝态氮为主，再加上亚硝态氮、氨态氮和有机态氮总称之为总氮或全态氮。
+                    </div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel10" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;氯离子在自然界水体中广泛分布，不同水体的差别很大，它的含量不易变化，是条件污染指示物，它会增加重金属盐类的溶解度。<br>&nbsp;&nbsp;&nbsp;&nbsp;钙离子和镁离子是生物必需的营养元素，钙离子可降低重金属和一价金属离子的毒性，同时钙镁离子可以增加水的缓冲性，对水体生物存活有重要影响。
+                    </div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel11" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;溶解性总磷不包括水体中悬浮物里所含的磷元素。</div>
+                </div>
+                <div style="width: 100%;height:400px;">
+                    <div id="echartPanel12" style="float:left;width:75%;height:400px;"></div>
+                    <div style="float:right;top:10%;width:20%;height:400px;">&nbsp;&nbsp;&nbsp;&nbsp;氢离子浓度指数(pH)是指溶液中氢离子的总数和总物质的量的比，是水溶液重要的理化参数。水的碱度是指水中含有能接受氢离子的物质的量，与pH值成正比。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="navbar-fixed-bottom navbar-default footer-wrapper">
+    <div class="container"><p class="text-center">2016 DSLab. LZU.</p></div>
+</footer>
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/leaflet.js"></script>
+<script type="text/javascript" src="/javascripts/echarts.min.js"></script>
+<script type="text/javascript" src="/javascripts/ChineseTmsProviders.js"></script>
+<script type="text/javascript" src="/javascripts/ditu.js"></script></body></html>

@@ -1,0 +1,113 @@
+.myFocus .loading .pic > img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 80px
+}
+
+@media (max-width: 473px) {
+    .tittle-font {
+        display: none
+    }
+}
+
+@media (max-width: 719px) and (min-width: 474px) {
+    .tittle-font {
+        display: none
+    }
+}
+
+@media (max-width: 994px) and (min-width: 720px) {
+    .tittle-font {
+        display: none
+    }
+}
+
+body, p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.bs-slide {
+    height: 595px
+}
+
+@media screen and (max-width: 767px) {
+    .bs-slide {
+        height: 300px
+    }
+}
+
+.heading {
+    margin: 10px 0 0 0;
+    color: #fff;
+    font-size: 56px;
+    font-weight: bold;
+    text-shadow: -3px 3px 8px rgba(0, 0, 0, 0.75);
+    padding-top: 35%
+}
+
+@media screen and (max-width: 1279px) {
+    .heading {
+        font-size: 48px
+    }
+}
+
+@media screen and (max-width: 979px) {
+    .heading {
+        font-size: 36px
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .heading {
+        font-size: 28px
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .heading {
+        font-size: 22px
+    }
+}
+
+.subheading {
+    margin-top: 0;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 300;
+    text-shadow: -3px 3px 8px rgba(0, 0, 0, 0.75)
+}
+
+@media screen and (max-width: 1279px) {
+    .subheading {
+        font-size: 36px
+    }
+}
+
+@media screen and (max-width: 979px) {
+    .subheading {
+        font-size: 30px
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .subheading {
+        font-size: 24px
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .subheading {
+        font-size: 20px
+    }
+}
+
+.footer-wrapper {
+    margin-top: 20px
+}

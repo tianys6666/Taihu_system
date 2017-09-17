@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" href="/stylesheets/ditu.css"/>
+    <link rel="stylesheet" href="/stylesheets/classic.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">湖泊数据可视化</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="ditu">地图</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            工具 <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="xiazai">查询下载</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Geojson数据转换</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="AboutUs">关于我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav nav-pills pull-right">
+                    <% if (user) { %>
+                    <li><a href="/usermessage"><%= user.name %></a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/login">登陆</a></li>
+                    <li><a href="/reg">注册</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div><span>年份:<input type="text" id="Syear" style="width:12%" placeholder="格式:1991~2006"/></span> <span>月份:<input
+                type="text" id="Smonth" style="width:12%" placeholder="格式:1~12"/></span> <span>站点:<input type="text"
+                                                                                                         id="Spoint"
+                                                                                                         style="width:12%"
+                                                                                                         placeholder="格式:THL00~THL08"/></span>
+    <select id="mySelect">
+        <option value="0">类别</option>
+        <option value="pH">pH</option>
+        <option value="总氮">总氮(mg/L)</option>
+        <option value="总磷">总磷(mg/L)</option>
+        <option value="硅酸盐">硅酸盐(µmol/L)</option>
+        <option value="硝态氮">硝态氮(mg/L)</option>
+        <option value="CODMn">CODMn(mg/L)</option>
+        <option value="溶解氧">溶解氧(mg/L)</option>
+        <option value="BOD5">BOD5(mg/L)</option>
+        <option value="氨氮">氨氮(mg/L)</option>
+        <option value="钾离子">钾离子(mg/L)</option>
+        <option value="钙离子">钙离子(mg/L)</option>
+        <option value="钠离子">钠离子(mg/L)</option>
+        <option value="镁离子">镁离子(mg/L)</option>
+        <option value="叶绿素a">叶绿素a(μg/L)</option>
+        <option value="脱镁叶绿素">脱镁叶绿素(μg/L)</option>
+        <option value="亚硝态氮">亚硝态氮(mg/L)</option>
+        <option value="溶解性总氮">溶解性总氮(mg/L)</option>
+        <option value="磷酸根">磷酸根(mg/L)</option>
+        <option value="溶解性总磷">溶解性总磷(mg/L)</option>
+        <option value="碱度">碱度(mmol/L)</option>
+        <option value="氟离子">氟离子(mg/L)</option>
+        <option value="氯离子">氯离子(mg/L)</option>
+        <option value="硫酸根离子">硫酸根离子(mg/L)</option>
+    </select>
+    <button id="serch" style="margin-left: 280px;">搜索</button>
+    <a href="Excel" style="text-decoration:none;">下载</a></div>
+<div id="example1"></div>
+<footer class="navbar-fixed-bottom navbar-default footer-wrapper" id="footer-wrapper1">
+    <div class="container"><p class="text-center">2016 DSLab. LZU.</p></div>
+</footer>
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/echarts.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.columns.min.js"></script>
+<script type="text/javascript" src="/javascripts/xiazai.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+var mongodb = require('./db');
+
+function GetoptionX(){
+
+}
+
+module.exports = GetoptionX;
+
+GetoptionX.getBylatlng = function(option,callback){
+	mongodb.open(function(err,db){
+		if(err){
+			return callback(err)
+		}
+		db.collection('chemicalData',function(err,collection){
+			if(err){
+				mongodb.close();
+				return callback(err);
+			}
+			switch(option){
+				case "总氮" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"总氮":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "pH" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"pH":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "总磷" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"总磷":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "硅酸盐" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"硅酸盐":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "硝态氮" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"硝态氮":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "CODMn" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"CODMn":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "溶解氧" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"溶解氧":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "BOD5" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"BOD5":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "氨氮" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"氨氮":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "钾离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"钾离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "钙离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"钙离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "钠离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"钠离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "镁离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"镁离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "叶绿素a" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"叶绿素a":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "脱镁叶绿素" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"脱镁叶绿素":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "亚硝态氮" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"亚硝态氮":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "溶解性总氮" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"溶解性总氮":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "磷酸根" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"磷酸根":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "溶解性总磷" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"溶解性总磷":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "碱度" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"总氮":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "氟离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"氟离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "氯离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"氯离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+				case "硫酸根离子" : collection.find({},{"_id":0,"年":1,"月":1,"站点":1,"名称":1,"硫酸根离子":1}).toArray(function(err,getoptionX){
+							if(err){
+								mongodb.close();
+								return callback(err);
+							}
+							return callback(null,getoptionX);
+						});
+						break;
+			}
+			
+		});
+	});
+}

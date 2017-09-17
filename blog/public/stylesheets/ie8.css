@@ -1,0 +1,1 @@
+@charset "utf-8";div.search{padding:0}div.search input[type=text]{padding:0 20px;padding-top:10px;height:15px;width:340px}div.search input[type=submit]{height:45px}div.not-found-text{top:65px}div.planet{z-index:-1}div.dog{z-index:1000}div.dog-bubble{filter:alpha(opacity=0);filter:alpha(opacity=0);-ms-filter:"alpha(opacity=0)";padding-top:35px}
