@@ -56,6 +56,3 @@
 
 ![](https://github.com/tianys6666/Taihu_system/blob/master/image/t9.png)
 >图9   太湖资源数据存储、可视化分析平台区域图
-
-![](https://github.com/tianys6666/Taihu_system/blob/master/image/t10.png)
->图10   太湖资源数据存储、可视化分析平台监测点数据可视化
